@@ -70,7 +70,7 @@ class LinkedList():
         i = 0
         while (iterator != None):
             i += 1
-            iterator = iterator.nextNode
+            iterator = iterator.next
         return i
 
 
