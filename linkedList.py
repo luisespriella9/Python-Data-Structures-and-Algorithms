@@ -1,6 +1,6 @@
 class ListNode():
     value = None
-    nextNode = None
+    next = None
 class LinkedList():
     head = None
     
@@ -11,20 +11,20 @@ class LinkedList():
         tempNode = ListNode()
         tempNode.value = value
         if (x == 0): #inserting at head
-            tempNode.nextNode = self.head
+            tempNode.next = self.head
             self.head = tempNode
             return
         i = 0
         iterator = self.head
-        while (i != x-1 and iterator.nextNode != None):
+        while (i != x-1 and iterator.next != None):
             i += 1
-            iterator = iterator.nextNode
+            iterator = iterator.next
         if (i == x-1):
-            if (iterator.nextNode != None):
-                tempNode.nextNode = iterator.nextNode
+            if (iterator.next != None):
+                tempNode.next = iterator.next
             else:
-                tempNode.nextNode = None
-            iterator.nextNode = tempNode
+                tempNode.next = None
+            iterator.next = tempNode
 
     def insertAtTail(self, value):
         tempNode = ListNode()
@@ -33,34 +33,35 @@ class LinkedList():
             self.head = tempNode
         else:
             iterator = self.head
-            while (iterator.nextNode != None):
-                iterator = iterator.nextNode
-            iterator.nextNode = tempNode
+            while (iterator.next != None):
+                iterator = iterator.next
+            iterator.next = tempNode
 
     def remove(self, value):
         iterator = self.head
         if (self.head.value == value):
-            if (self.head.nextNode != None):
-                self.head = self.head.nextNode
+            if (self.head.next != None):
+                self.head = self.head.next
             else:
                 self.head = None
             return
-        while (iterator.nextNode != None):
-            if (iterator.nextNode.value == value):
-                if (iterator.nextNode.nextNode != None):
-                    iterator.nextNode = iterator.nextNode.nextNode
+        while (iterator.next != None):
+            if (iterator.next.value == value):
+                if (iterator.next.next != None):
+                    iterator.next = iterator.next.next
                 else:
-                    iterator.nextNode = None
+                    iterator.next = None
                 break
-            iterator = iterator.nextNode
+            iterator = iterator.next
 
     def printList(self):
-        l = list()
+        result = ""
         iterator = self.head
         while (iterator != None):
-            l.append(iterator.value)
-            iterator = iterator.nextNode
-        return l
+            result += str(iterator.value) + "->"
+            iterator = iterator.next
+        result += "None"
+        return result
 
     def size(self):
         if (self.head == None):
