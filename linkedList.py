@@ -37,7 +37,7 @@ class LinkedList():
                 iterator = iterator.next
             iterator.next = tempNode
 
-    def delete(self, value):
+    def remove(self, value):
         iterator = self.head
         if (self.head.value == value):
             if (self.head.next != None):
@@ -82,6 +82,6 @@ if __name__ == "__main__":
     linkedList.insertAt(1, 6)
     print(linkedList.printList())
     print(linkedList.size())
-    linkedList.delete(8)
-    linkedList.delete(5)
+    linkedList.remove(8)
+    linkedList.remove(5)
     print(linkedList.printList())
