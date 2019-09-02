@@ -26,7 +26,7 @@ class LinkedList():
                 tempNode.next = None
             iterator.next = tempNode
 
-    def insertAtTail(self, value):
+    def appendToTail(self, value):
         tempNode = ListNode()
         tempNode.value = value
         if (self.head == None):
@@ -37,7 +37,7 @@ class LinkedList():
                 iterator = iterator.next
             iterator.next = tempNode
 
-    def remove(self, value):
+    def deleteNode(self, value):
         iterator = self.head
         if (self.head.value == value):
             if (self.head.next != None):
@@ -77,11 +77,11 @@ class LinkedList():
 if __name__ == "__main__":
     print("running main")
     linkedList = LinkedList()
-    linkedList.insertAtTail(5)
-    linkedList.insertAtTail(8)
+    linkedList.appendToTail(5)
+    linkedList.appendToTail(8)
     linkedList.insertAt(1, 6)
     print(linkedList.printList())
     print(linkedList.size())
-    linkedList.remove(8)
-    linkedList.remove(5)
+    linkedList.deleteNode(8)
+    linkedList.deleteNode(5)
     print(linkedList.printList())
