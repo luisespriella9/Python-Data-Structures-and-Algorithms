@@ -11,7 +11,7 @@ class Queue:
         self.front = None
         self.back = None
     
-    def enqueue(self, value):
+    def add(self, value):
         temporaryNode = QueueNode()
         temporaryNode.value = value
         if (self.front == None and self.back == None):
@@ -25,7 +25,7 @@ class Queue:
             self.back.prev  = temporaryNode
             self.back = temporaryNode
 
-    def dequeue(self):
+    def remove(self):
         if (self.front != None):
             if (self.front == self.back):
                 tempNode = self.front
@@ -56,14 +56,14 @@ class Queue:
 if __name__ == "__main__":
     print("running main")
     queue = Queue()
-    queue.dequeue()
-    queue.enqueue("otherside")
-    queue.enqueue("too far gone")
+    queue.remove()
+    queue.add("otherside")
+    queue.add("too far gone")
     print(queue.printQueue())
-    queue.dequeue()
-    queue.enqueue("stairway to heaven")
+    queue.remove()
+    queue.add("stairway to heaven")
     print(queue.printQueue())
-    queue.dequeue()
-    queue.dequeue()
-    queue.dequeue()
+    queue.remove()
+    queue.remove()
+    queue.remove()
     print(queue.printQueue())
