@@ -1,15 +1,22 @@
 class ListNode():
     value = None
     next = None
+    
+    def __init__(self, value):
+        self.value = value
 class LinkedList():
     head = None
     
     def _init_(self):
         self.head = None
+        
+    def addFirst(self, value):
+        newHead = ListNode(value)
+        newHead.next = self.head
+        self.head = newHead
     
     def insertAt(self, x, value):
-        tempNode = ListNode()
-        tempNode.value = value
+        tempNode = ListNode(value)
         if (x == 0): #inserting at head
             tempNode.next = self.head
             self.head = tempNode
@@ -27,7 +34,7 @@ class LinkedList():
             iterator.next = tempNode
 
     def appendToTail(self, value):
-        tempNode = ListNode()
+        tempNode = ListNode(value)
         tempNode.value = value
         if (self.head == None):
             self.head = tempNode
@@ -37,7 +44,7 @@ class LinkedList():
                 iterator = iterator.next
             iterator.next = tempNode
 
-    def delete(self, value):
+    def remove(self, value):
         iterator = self.head
         if (self.head.value == value):
             if (self.head.next != None):
@@ -82,6 +89,6 @@ if __name__ == "__main__":
     linkedList.insertAt(1, 6)
     print(linkedList.printList())
     print(linkedList.size())
-    linkedList.delete(8)
-    linkedList.delete(5)
+    linkedList.remove(8)
+    linkedList.remove(5)
     print(linkedList.printList())
