@@ -1,6 +1,9 @@
 class ListNode():
     value = None
     next = None
+    
+    def __init__(self, value):
+        self.value = value
 class LinkedList():
     head = None
     
@@ -13,8 +16,7 @@ class LinkedList():
         self.head = newHead
     
     def insertAt(self, x, value):
-        tempNode = ListNode()
-        tempNode.value = value
+        tempNode = ListNode(value)
         if (x == 0): #inserting at head
             tempNode.next = self.head
             self.head = tempNode
@@ -32,7 +34,7 @@ class LinkedList():
             iterator.next = tempNode
 
     def appendToTail(self, value):
-        tempNode = ListNode()
+        tempNode = ListNode(value)
         tempNode.value = value
         if (self.head == None):
             self.head = tempNode
