@@ -6,6 +6,11 @@ class LinkedList():
     
     def _init_(self):
         self.head = None
+        
+    def addFirst(self, value):
+        newHead = ListNode(value)
+        newHead.next = self.head
+        self.head = newHead
     
     def insertAt(self, x, value):
         tempNode = ListNode()
